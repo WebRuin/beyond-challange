@@ -14,8 +14,10 @@
 ?>
 
 <?php get_header(); ?>
-	<div id="left-content" class="d-4of7">
+	<div class="logo">
 		<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"></a></p>
+	</div>
+	<div id="left-content" class="d-4of7">
 		<div id="inner-content" class="wrap cf">
 			<main id="main" class="m-all t-2of3 d-3of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

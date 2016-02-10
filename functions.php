@@ -230,6 +230,7 @@ function bones_comments( $comment, $args, $depth ) {
 <?php
 } // don't remove this bracket!
 
+/*********** Get Posts For Scroll ***************/
 
 /*
 This is a modification of a function found in the
