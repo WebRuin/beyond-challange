@@ -150,6 +150,10 @@ function bones_theme_customizer($wp_customize) {
 
 add_action( 'customize_register', 'bones_theme_customizer' );
 
+/**************** Test Stuff **********************/
+
+
+
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
@@ -230,7 +234,43 @@ function bones_comments( $comment, $args, $depth ) {
 <?php
 } // don't remove this bracket!
 
-/*********** Get Posts For Scroll ***************/
+/*********** Get Posts/Media For Scroll ***************/
+
+$media_query = new WP_Query(
+    array(
+        'post_type' => 'attachment',
+        'post_status' => 'inherit',
+        'posts_per_page' => -1,
+    )
+);
+$list = array();
+foreach ($media_query->posts as $post) {
+    $list[] = wp_get_attachment_url($post->ID);
+}
+
+function makeImageArray($list) {
+  $i = count($list);
+  echo "<ul>";
+  foreach ($list as $items) {
+    if ($item['depth'] > $stack->top()) {
+      $stack->push($item['depth']);
+       echo "<li><ul>";
+    }
+    
+    while (!$stack->isEmpty() && $stack->top() > $item['depth']) {
+        $stack->pop();
+        echo "</ul></li>";
+    }
+
+    echo "<li>$item[name]</li>";
+  }
+
+  while ($stack->count() > 1) {
+      $stack->pop();
+      echo "</ul></li>";
+  }
+  echo "</ul>";  
+}
 
 /*
 This is a modification of a function found in the
