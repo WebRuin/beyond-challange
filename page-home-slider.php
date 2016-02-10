@@ -78,6 +78,6 @@
 	</div>
 
 	<div id="right-content" class='t-2of3 d-3of7'>
-		hi
+		<?php makeImageArray() ?>
 	</div>
 <?php get_footer(); ?>

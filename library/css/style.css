@@ -1364,7 +1364,10 @@ HEADER STYLES
 }
 
 #logo {
-  background: url('../images/logo.png') no-repeat;}
+  background: url('../images/logo.png') no-repeat;
+  position: absolute;
+  top:2rem;
+  left:2rem; }
   #logo a {
     color: black; 
     margin-left: 250px; }
@@ -1423,7 +1426,14 @@ POSTS & CONTENT STYLES
  }
 #right-content {
   height: 100vh;
-  margin-top: 1.5em; }
+  margin-top: 1.5em;
+  overflow: auto; }
+  #right-side-images{
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
 .hentry {
   background-color: white;

@@ -118,3 +118,66 @@ jQuery(document).ready(function($) {
 
 
 }); /* end of as page load scripts */
+
+/*
+ * Scroll to next post
+ */
+
+ if (document.addEventListener) {
+    document.addEventListener("mousewheel", MouseWheelHandler(), false);
+    document.addEventListener("DOMMouseScroll", MouseWheelHandler(), false);
+} else {
+    sq.attachEvent("onmousewheel", MouseWheelHandler());
+}
+
+
+// function MouseWheelHandler() {
+//     return function (e) {
+//         // cross-browser wheel delta
+//         var e = window.event || e;
+//         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+
+//         //scrolling down?
+//         if (delta < 0) {
+//             alert("Down");
+//         }
+
+//         //scrolling up?
+//         else {
+//              alert("Up");
+//         }
+//         return false;
+//     }
+// }
+
+/*
+ * JS for the main page slider
+*/
+
+jQuery(document).ready(function($) {
+   $('#simple-vertical').royalSlider({
+    arrowsNav: true,
+    arrowsNavAutoHide: false,
+    fadeinLoadedSlide: true,
+    controlNavigation: 'none',
+    imageScaleMode: 'fill',
+    imageAlignCenter:true,
+    loop: false,
+    loopRewind: false,
+    numImagesToPreload: 4,
+    slidesOrientation: 'vertical',
+    keyboardNavEnabled: true,
+    video: {
+      autoHideArrows:true,
+      autoHideControlNav:true
+    },  
+
+    autoScaleSlider: true, 
+    autoScaleSliderWidth: 960,     
+    autoScaleSliderHeight: 850,
+
+    /* size of all images http://help.dimsemenov.com/kb/royalslider-jquery-plugin-faq/adding-width-and-height-properties-to-images */
+    imgWidth: 640,
+    imgHeight: 360
+  });
+});

@@ -150,6 +150,10 @@ function bones_theme_customizer($wp_customize) {
 
 add_action( 'customize_register', 'bones_theme_customizer' );
 
+/**************** Test Stuff **********************/
+
+
+
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
@@ -230,7 +234,28 @@ function bones_comments( $comment, $args, $depth ) {
 <?php
 } // don't remove this bracket!
 
-/*********** Get Posts For Scroll ***************/
+/*********** Get Posts/Media For Scroll ***************/
+
+function makeImageArray() {
+  $media_query = new WP_Query(
+      array(
+          'post_type' => 'attachment',
+          'post_status' => 'inherit',
+          'posts_per_page' => -1,
+      )
+  );
+  $imageList = array();
+  foreach ($media_query->posts as $post) {
+      $imageList[] = wp_get_attachment_url($post->ID);
+  }
+
+  $i = count($imageList);
+  echo "<ul>";
+  foreach ($imageList as $items) {
+    echo "<li><img id='right-side-images' src='$items' /></li>";
+  }
+  echo "</ul>";  
+}
 
 /*
 This is a modification of a function found in the
